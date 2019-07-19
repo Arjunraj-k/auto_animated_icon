@@ -2,7 +2,7 @@
 
   
 
-A Flutter package to simlify the process of creating an AnimatedIcon
+A Flutter package to simplify the process of creating an AnimatedIcon
 
   
 
