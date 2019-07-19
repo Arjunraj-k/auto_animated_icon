@@ -14,7 +14,7 @@ The **AutoAnimatedIcon** will help you create an [AnimatedIcon](https://api.flut
 
   
 
-There is an **initialState** property which can be set to either **InitialState.first** or **InitialState.second** to specify which state of the icon's state is shown first.
+There is an **initialState** property which can be set to either **InitialState.first** or **InitialState.second** to specify which of the icon's state is shown first.
 
 ## Example
   
@@ -39,5 +39,7 @@ In this example the widget will show the close button initially.
 
 ### For Further Customization 
 For more customization options consider [IconButton](https://api.flutter.dev/flutter/material/IconButton-class.html)'s and [AnimatedIcon](https://api.flutter.dev/flutter/material/AnimatedIcon-class.html)'s  properties which are directly available to use in AutoAnimatedIcon.
+
+***Feel free to let me know of any issues or suggestions.***
 
 For help getting started with Flutter, view the [online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on mobile development, and a full API reference.
