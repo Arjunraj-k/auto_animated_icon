@@ -117,4 +117,3 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
     );
   }
 }
-
