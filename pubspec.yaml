@@ -1,8 +1,8 @@
 name: auto_animated_icon
 description: A Flutter package to simlify the process of creating an AnimatedIcon
 version: 0.0.1
-author:
-homepage:
+author: Arjunraj Kokkadan
+homepage: https://thebinaryeffect.com/open-source/flutter/auto-animated-icon/
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

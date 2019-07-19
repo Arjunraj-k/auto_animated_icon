@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - Release date.
 
-* TODO: Describe initial release.
+* The initial release include the features which are essential to build the AnimatedIcon as simple as possible.
