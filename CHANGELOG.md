@@ -1,3 +1,7 @@
+## [1.0.3] - 21-07-2019.
+
+* Added separate toolip(firstToolip & secondToolip) for both icons. And the toolip Example.
+
 ## [1.0.2] - 20-07-2019.
 
 * Modified the example to match the known example patterns.

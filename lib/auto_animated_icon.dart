@@ -8,8 +8,12 @@ enum InitialState { first, second }
 ///
 ///The [icon] and [onPressed] are required.
 ///[icon] cannot be null.
+///
 ///[duration] is the time taken to animate the transition.
+///
 ///[initialState] is the initial state of the [AnimatedIcon] which can be either [InitialState.first] or [InitialState.second] where the first indicate the first icon.
+///
+///[firstToolip] is the toolip for first icon. [secondToolip] is the toolip for second icon.
 ///
 ///
 ///For other customization info, Please refere to [IconButton] and [AnimatedIcon].

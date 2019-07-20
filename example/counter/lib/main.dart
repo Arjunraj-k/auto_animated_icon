@@ -84,6 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: AnimatedIcons.menu_arrow,
             onPressed: () {},
             initialState: InitialState.second,
+          ),
+          AutoAnimatedIcon(
+            icon: AnimatedIcons.event_add,
+            onPressed: () {},
+            firstToolip: "Event",
+            secondToolip: "Add",
           )
         ],
       ),
