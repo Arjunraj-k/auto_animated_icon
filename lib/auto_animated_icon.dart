@@ -87,11 +87,12 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
   }
 
   void _autoAnimateIcon() {
+    
+    isPressed = !isPressed;
     setState(() {
       isPressed
           ? _menuAnimationController.forward()
           : _menuAnimationController.reverse();
-      isPressed = !isPressed;
     });
 
     if (widget.onPressed != null) widget.onPressed();

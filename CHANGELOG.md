@@ -1,3 +1,11 @@
+## [1.0.5] - 21-07-2019.
+
+* Bug Fix.
+
+## [1.0.4] - 21-07-2019.
+
+* Fixed a bug which prevented transition while tapped for the first time after its built.
+
 ## [1.0.3] - 21-07-2019.
 
 * Added separate toolip(firstToolip & secondToolip) for both icons. And the toolip Example.
