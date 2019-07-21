@@ -1,3 +1,15 @@
+## [1.0.8] - 21-07-2019.
+
+* Modified example to have the latest dependencies. 
+
+## [1.0.7] - 21-07-2019.
+
+* Really Fixed a bug which prevented transition while tapped for the first time after its built.
+
+## [1.0.6] - 21-07-2019.
+
+* Code formatted.
+
 ## [1.0.5] - 21-07-2019.
 
 * Bug Fix.
