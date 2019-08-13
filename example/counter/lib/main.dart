@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_animated_icon/auto_animated_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -68,31 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
 
-        //implement animated icon
-        leading: AutoAnimatedIcon(
-          icon: AnimatedIcons.menu_arrow,
-          onPressed: () {},
-        ),
-
-        //animated icon with initial state
-        actions: <Widget>[
-          AutoAnimatedIcon(
-            icon: AnimatedIcons.menu_arrow,
-            onPressed: () {},
-            initialState: InitialState.second,
-          ),
-          AutoAnimatedIcon(
-            icon: AnimatedIcons.event_add,
-            onPressed: () {},
-            firstToolip: "Event",
-            secondToolip: "Add",
-          )
-        ],
-      ),
+          //implement animated icon
+          leading: MenuCloseIcon()),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -128,6 +111,41 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class MenuCloseIcon extends StatefulWidget {
+  const MenuCloseIcon({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _MenuCloseIconState createState() => _MenuCloseIconState();
+}
+
+class _MenuCloseIconState extends State<MenuCloseIcon> {
+  IconState _iconState = IconState.first;
+
+  bool _isPressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AutoAnimatedIcon(
+      iconState: _iconState,
+      icon: AnimatedIcons.menu_close,
+      firstToolip: "Menu",
+      secondToolip: "Close",
+      onPressed: () {
+        setState(() {
+          _isPressed = !_isPressed;
+          if (_isPressed)
+            _iconState = IconState.second;
+          else
+            _iconState = IconState.first;
+        });
+        log("Button Pressed");
+      },
     );
   }
 }

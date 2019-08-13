@@ -1,15 +1,13 @@
-library auto_animated_icon;
-
 import 'package:flutter/material.dart';
 
-enum InitialState { first, second }
+enum IconState { first, second }
 
 ///Creates an AnimatedIcon which is automaically animated.
 ///
 ///The [icon] and [onPressed] are required.
 ///[icon] cannot be null.
 ///[duration] is the time taken to animate the transition.
-///[initialState] is the initial state of the [AnimatedIcon] which can be either [InitialState.first] or [InitialState.second] where the first indicate the first icon.
+///[iconState] is the state of the [AnimatedIcon] which can be either [IconState.first] or [IconState.second] where the first indicate the first icon.
 ///
 ///
 ///For other customization info, Please refere to [IconButton] and [AnimatedIcon].
@@ -31,7 +29,7 @@ class AutoAnimatedIcon extends StatefulWidget {
   final FocusNode focusNode;
   final String semanticLabel;
   final TextDirection textDirection;
-  final InitialState initialState;
+  final IconState iconState;
 
   AutoAnimatedIcon(
       {Key key,
@@ -52,7 +50,7 @@ class AutoAnimatedIcon extends StatefulWidget {
       this.textDirection,
       this.firstToolip,
       this.secondToolip,
-      this.initialState = InitialState.first})
+      this.iconState = IconState.first})
       : super(key: key);
 
   @override
@@ -63,19 +61,16 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
     with SingleTickerProviderStateMixin {
   AnimationController _menuAnimationController;
 
-  bool isPressed;
-
   @override
   void initState() {
     super.initState();
     _menuAnimationController =
         AnimationController(vsync: this, duration: widget.duration);
-    this.isPressed = widget.initialState == InitialState.first ? false : true;
 
-    if (isPressed)
-      _menuAnimationController.forward();
-    else
+    if (widget.iconState == IconState.first)
       _menuAnimationController.reverse();
+    else
+      _menuAnimationController.forward();
   }
 
   @override
@@ -85,12 +80,11 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
   }
 
   void _autoAnimateIcon() {
-    isPressed = !isPressed;
     setState(() {
-      if (isPressed)
-        _menuAnimationController.forward();
-      else
+      if (widget.iconState == IconState.second)
         _menuAnimationController.reverse();
+      else
+        _menuAnimationController.forward();
     });
 
     if (widget.onPressed != null) widget.onPressed();
@@ -102,7 +96,9 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
       onPressed: _autoAnimateIcon,
       splashColor: widget.splashColor,
       hoverColor: widget.hoverColor,
-      tooltip: isPressed ? widget.firstToolip : widget.secondToolip,
+      tooltip: (widget.iconState == IconState.first)
+          ? widget.firstToolip
+          : widget.secondToolip,
       iconSize: widget.size,
       padding: widget.padding,
       alignment: widget.alignment,

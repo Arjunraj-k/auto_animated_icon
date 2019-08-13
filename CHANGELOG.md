@@ -1,3 +1,11 @@
+## [1.1.1] - 13-08-2019.
+
+* Updated Readme and example.
+
+## [1.1.0] - 13-08-2019.
+
+* Updated to have iconState. chaning the iconState and calling setState() will animate the icon. 
+
 ## [1.0.8] - 21-07-2019.
 
 * Modified example to have the latest dependencies. 
