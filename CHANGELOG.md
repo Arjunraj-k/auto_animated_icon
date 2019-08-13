@@ -1,3 +1,7 @@
+## [1.1.2] - 13-08-2019.
+
+* Updated Readme and example.
+
 ## [1.1.1] - 13-08-2019.
 
 * Updated Readme and example.
