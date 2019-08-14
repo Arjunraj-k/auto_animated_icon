@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 enum IconState { first, second }
@@ -79,21 +81,26 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
     _menuAnimationController.dispose();
   }
 
-  void _autoAnimateIcon() {
-    setState(() {
-      if (widget.iconState == IconState.second)
-        _menuAnimationController.reverse();
-      else
-        _menuAnimationController.forward();
-    });
+  @override
+  void didUpdateWidget(AutoAnimatedIcon oldWidget) {
+    log(oldWidget.iconState.toString());
 
-    if (widget.onPressed != null) widget.onPressed();
+    if (oldWidget.iconState != widget.iconState) {
+      if (oldWidget.iconState == IconState.first &&
+          widget.iconState == IconState.second)
+        _menuAnimationController.forward();
+      else if (oldWidget.iconState == IconState.second &&
+          widget.iconState == IconState.first)
+        _menuAnimationController.reverse();
+    }
+
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: _autoAnimateIcon,
+      onPressed: widget.onPressed,
       splashColor: widget.splashColor,
       hoverColor: widget.hoverColor,
       tooltip: (widget.iconState == IconState.first)
