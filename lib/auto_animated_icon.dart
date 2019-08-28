@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 enum IconState { first, second }
@@ -61,37 +59,34 @@ class AutoAnimatedIcon extends StatefulWidget {
 
 class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
     with SingleTickerProviderStateMixin {
-  AnimationController _menuAnimationController;
+  AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    _menuAnimationController =
+    _animationController =
         AnimationController(vsync: this, duration: widget.duration);
 
     if (widget.iconState == IconState.first)
-      _menuAnimationController.reverse();
+      _animationController.reverse();
     else
-      _menuAnimationController.forward();
+      _animationController.forward();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _menuAnimationController.dispose();
+    _animationController.dispose();
   }
 
   @override
   void didUpdateWidget(AutoAnimatedIcon oldWidget) {
-    log(oldWidget.iconState.toString());
-
     if (oldWidget.iconState != widget.iconState) {
       if (oldWidget.iconState == IconState.first &&
           widget.iconState == IconState.second)
-        _menuAnimationController.forward();
+        _animationController.forward();
       else if (oldWidget.iconState == IconState.second &&
-          widget.iconState == IconState.first)
-        _menuAnimationController.reverse();
+          widget.iconState == IconState.first) _animationController.reverse();
     }
 
     super.didUpdateWidget(oldWidget);
@@ -116,7 +111,7 @@ class _AutoAnimatedIconState extends State<AutoAnimatedIcon>
       focusNode: widget.focusNode,
       icon: AnimatedIcon(
         icon: widget.icon,
-        progress: _menuAnimationController,
+        progress: _animationController,
         semanticLabel: widget.semanticLabel,
         textDirection: widget.textDirection,
       ),

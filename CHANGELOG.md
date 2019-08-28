@@ -1,3 +1,7 @@
+## [1.1.4] - 28-08-2019.
+
+* Fixed a small bug.
+
 ## [1.1.3] - 14-08-2019.
 
 * Fixed a terrible bug.
